@@ -45,5 +45,5 @@ Uf: {{formEndereco.uf}} <br>
 Cep: {{formEndereco.cep}} <br>
 
 {% for fieldset in form %}
-	{{fieldset.name }} {{fieldset.errors}} <br>
+	{{fieldset.name }} <br> {{fieldset.errors}} <br>
 {% endfor %}
