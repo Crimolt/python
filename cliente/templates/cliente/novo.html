@@ -1,0 +1,9 @@
+
+<h1> Cliente </h1>
+<form method="POST" action="{% url 'app_cliente_salvar' 0 %}">
+	{% csrf_token %}
+	{% include 'cliente/form_cliente.html' %}
+
+<input type="submit"/>
+
+</form>

@@ -1,0 +1,7 @@
+<form method="POST" action="{% url 'app_funcionario_salvar' 0 %}">
+	{% csrf_token %}
+	{% include 'funcionario/form_funcionario.html' %}
+
+<input type="submit"/>
+
+</form>
