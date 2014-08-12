@@ -6,24 +6,19 @@
         </div>
     {% endif%}
 
+    <div>
     {% if erros %}
-    <br/>
-    <div class="alert alert-danger fade in">
         {{erros}}
-    </div>
     {% endif%}
-
 
     {% if errosEnd %}
-    <br/>
-    <div class="alert alert-danger fade in">
         {{errosEnd}}
-    </div>
     {% endif%}
+    </div>
 
 Nome: {{form.nome}} <br>
 Nome Fantasia: {{form.nome_fantasia}} <br>
-Tipo Pessoa{{form.tipo_pessoa}} <br>
+Tipo Pessoa: {{form.tipo_pessoa}} <br>
 Cpf: {{form.cpf}} <br>
 Rg: {{form.rg}} <br>
 Cnpj: {{form.cnpj}} <br>
@@ -43,7 +38,3 @@ Bairro: {{formEndereco.bairro}} <br>
 Cidade: {{formEndereco.cidade}} <br>
 Uf: {{formEndereco.uf}} <br>
 Cep: {{formEndereco.cep}} <br>
-
-{% for fieldset in form %}
-	{{fieldset.name }} <br> {{fieldset.errors}} <br>
-{% endfor %}

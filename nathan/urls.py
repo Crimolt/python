@@ -9,6 +9,10 @@ urlpatterns = patterns('',
 	)
 
 urlpatterns += patterns('',
+	url(r'^parceiro/', include('parceiro.urls')),
+	)
+
+urlpatterns += patterns('',
     # Examples:
     # url(r'^$', 'nathan.views.home', name='home'),
     # url(r'^nathan/', include('nathan.foo.urls')),

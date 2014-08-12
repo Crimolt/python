@@ -29,7 +29,7 @@ def salvar(request, id=None):
 
         cliente.save()
         mensagem = 'Cliente salvo com sucesso!'
-        return detalhe(request, cliente.id, mensagem)
+        return lista(request)
     else:
         dados['form'] = form
         dados['formEndereco'] = formEndereco
