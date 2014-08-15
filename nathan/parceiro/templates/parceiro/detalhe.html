@@ -1,0 +1,7 @@
+<form method="POST" action="{% url 'app_parceiro_salvar' 0 %}">
+	{% csrf_token %}
+	{% include 'parceiro/form_parceiro.html' %}
+
+<input type="submit"/>
+
+</form>
