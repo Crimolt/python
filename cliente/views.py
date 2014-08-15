@@ -3,14 +3,15 @@ from cliente.forms import ClienteForm
 from endereco.forms import EnderecoForm
 from cliente.models import Cliente
 
-template_novo = 'cliente/novo.html'
-template_detalhe = 'cliente/detalhe.html'
-template_lista = 'cliente/lista.html'
+template_novo = 'novo.html'
+template_detalhe = 'detalhe.html'
+template_lista = 'lista.html'
 
 def novo(request):
     dados = {}
     dados['form'] = ClienteForm()
     dados['formEndereco'] = EnderecoForm()
+    dados['aux'] = '<script> alert("Levi is awesome") </script>'
     return render(request, template_novo, dados)
 
 def salvar(request, id=None):
