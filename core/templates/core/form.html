@@ -1,0 +1,28 @@
+
+	{% if mensagem %}
+        <br/>
+        <div class="alert alert-danger alert-dismissable">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+			<h4>
+				Campos Obrigatórios!
+			</h4>
+			<strong>Falha ao Salvar!</strong> {{mensagem}}
+		</div>
+    {% endif%}
+
+    <div>
+    {% if erros %}
+        {{erros}}
+    {% endif%}
+
+    {% if errosEnd %}
+        {{errosEnd}}
+    {% endif%}
+    </div>
+
+
+    {{aux|safe}}
+
+<div class="form-group">
+    <label for="{{form.nome}}">Nome</label><input type="text" class="form-control" id="{{form.nome}}">
+</div>

@@ -4,9 +4,9 @@ from cliente.forms import ClienteForm
 from endereco.forms import EnderecoForm
 from cliente.models import Cliente
 
-template_novo = 'novo.html'
-template_detalhe = 'detalhe.html'
-template_lista = 'lista.html'
+template_novo = 'cliente/novo.html'
+template_detalhe = 'cliente/detalhe.html'
+template_lista = 'cliente/lista.html'
 
 def novo(request):
     dados = {}

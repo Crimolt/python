@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'cliente/base.html' %}
 
 {% block title %} Cadastro de Cliente {% endblock %}
 
@@ -6,7 +6,7 @@
 	<h1> Cliente </h1>
 	<form method="POST" action="{% url 'app_cliente_salvar' 0 %}">
 		{% csrf_token %}
-		{% include 'form_cliente.html' %}
+		{% include 'cliente/form.html' %}
 
 	<input type="submit"/>
 
