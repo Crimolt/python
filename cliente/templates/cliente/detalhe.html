@@ -1,7 +1,12 @@
-<form method="POST" action="{% url 'app_cliente_salvar' 0 %}">
-	{% csrf_token %}
-	{% include 'cliente/form.html' %}
+{% extends 'core/base.html' %}
 
-<input type="submit"/>
+{% block title %} Cadastro de Cliente {% endblock %}
 
-</form>
+{% block container %}
+	<form method="POST" action="{%url 'app_cliente_salvar' cliente.id %}">
+	    {% csrf_token %}
+	    {% include 'cliente/form.html' %}
+	    <button type="submit" class="btn btn-primary">Salvar</button>
+	</form>
+{% endblock %}
+
