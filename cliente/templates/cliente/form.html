@@ -1,8 +1,43 @@
-
 {% for field in form %}
-    {{field.label_tag}}{{field}}<br>
+	{% if field.field.choices %}
+		<div class="form-group">
+			{{field.label_tag}}
+			<select class="form-control" id="id_{{field.name}}" name="{{field.name}}">
+				{% for x,y in field.field.choices %}
+					{% if x == field.value %}
+	    				<option value="{{x}}" selected="selected">{{y}}</option>
+	    			{% else %}
+	    				<option value="{{x}}">{{y}}</option>
+	    			{% endif %}
+				{% endfor %}
+			</select>
+		</div>
+	{% else %}
+		<div class="form-group">
+			{{field.label_tag}}
+			<input class="form-control" id="id_{{field.name}}" name="{{field.name}}" value="{{field.value}}">
+		</div>
+	{% endif %}
 {% endfor %}
 
 {% for field in formEndereco %}
-    {{field.label_tag}}{{field}}<br>
+	{% if field.field.choices %}
+		<div class="form-group">
+			{{field.label_tag}}
+			<select class="form-control" id="id_{{field.name}}" name="{{field.name}}">
+				{% for x,y in field.field.choices %}
+					{% if x == field.value %}
+	    				<option value="{{x}}" selected="selected">{{y}}</option>
+	    			{% else %}
+	    				<option value="{{x}}">{{y}}</option>
+	    			{% endif %}
+				{% endfor %}
+			</select>
+		</div>
+	{% else %}
+		<div class="form-group">
+			{{field.label_tag}}
+			<input class="form-control" id="id_{{field.name}}" name="{{field.name}}" value="{{field.value}}">
+		</div>
+	{% endif %}
 {% endfor %}
