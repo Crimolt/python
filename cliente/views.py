@@ -11,7 +11,6 @@ def novo(request):
     dados = {}
     dados['form'] = ClienteForm()
     dados['formEndereco'] = EnderecoForm()
-    dados['aux'] = '<script> alert("Levi is awesome") </script>'
     return render(request, template_novo, dados)
 
 def salvar(request, id=None):
