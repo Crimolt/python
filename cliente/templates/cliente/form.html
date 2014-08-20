@@ -1,44 +1,8 @@
 
-	{% if mensagem %}
-        <br/>
-        <div class="alert alert-info fade in">
-            {{mensagem}}
-        </div>
-    {% endif%}
+{% for field in form %}
+    {{field.label_tag}}{{field}}<br>
+{% endfor %}
 
-    <div>
-    {% if erros %}
-        {{erros}}
-    {% endif%}
-
-    {% if errosEnd %}
-        {{errosEnd}}
-    {% endif%}
-    </div>
-
-
-    {{aux|safe}}
-
-
-Nome: {{form.nome}} <br>
-Nome Fantasia: {{form.nome_fantasia}} <br>
-Tipo Pessoa: {{form.tipo_pessoa}} <br>
-Cpf: {{form.cpf}} <br>
-Rg: {{form.rg}} <br>
-Cnpj: {{form.cnpj}} <br>
-Inscricao Estadual: {{form.inscricao_estadual}} <br>
-Inscricao Municipal: {{form.inscricao_municipal}} <br>
-Telefone: {{form.telefone}} <br>
-Celular: {{form.celular}} <br>
-Email: {{form.email}} <br>
-Nome Mae: {{form.nome_mae}} <br>
-Nome Pai: {{form.nome_pai}} <br>
-
-Endereco <br>
-Tipo: {{formEndereco.tipo_logradouro}} <br>
-Logradouro: {{formEndereco.logradouro}} <br>
-Numero: {{formEndereco.numero}} <br>
-Bairro: {{formEndereco.bairro}} <br>
-Cidade: {{formEndereco.cidade}} <br>
-Uf: {{formEndereco.uf}} <br>
-Cep: {{formEndereco.cep}} <br>
+{% for field in formEndereco %}
+    {{field.label_tag}}{{field}}<br>
+{% endfor %}

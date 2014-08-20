@@ -1,11 +1,51 @@
+{% extends 'core/base.html' %}
 
-{% for form in clientes%}
-	<h1> Cliente </h1>
-	{% with formEndereco=form.endereco %}
-	{% include 'form_cliente.html' %}
-	{% endwith %}
-	<br>
-{% endfor %}
+{% block title %} Lista de Cliente {% endblock %}
 
-
-</form>
+{% block container %}
+<div class="container">
+	<div class="row">
+		<span><a href="{% url 'app_cliente_novo' %}"> Add </a></span>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							#
+						</th>
+						<th>
+							Nome
+						</th>
+						<th>
+							Telefone
+						</th>
+						<th>
+							E-Mail
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for cliente in clientes %}
+					<tr>
+						<td>
+							<a href="{% url 'app_cliente_detalhe' cliente.id %}">{{ cliente.id }}</a>
+						</td>
+						<td>
+							{{ cliente.nome }}
+						</td>
+						<td>
+							{{ cliente.telefone }}
+						</td>
+						<td>
+							{{ cliente.email }}
+						</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock %}

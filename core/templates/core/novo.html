@@ -3,12 +3,5 @@
 {% block title %} Form User {% endblock %}
  
 {% block container %}
-<h3 class="text-center text-primary">
-    Cadastro de Clientes
-</h3>
-<form role="form">
-    {% csrf_token %}
-    {% include 'core/form.html' %}
-    <button type="submit" class="btn btn-primary">Salvar</button>
-</form>
+
 {% endblock %}

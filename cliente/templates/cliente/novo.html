@@ -1,15 +1,20 @@
-{% extends 'cliente/base.html' %}
+{% extends 'core/base.html' %}
 
 {% block title %} Cadastro de Cliente {% endblock %}
 
-{% block content %}
-	<h1> Cliente </h1>
-	<form method="POST" action="{% url 'app_cliente_salvar' 0 %}">
-		{% csrf_token %}
-		{% include 'cliente/form.html' %}
+{% block container %}
 
-	<input type="submit"/>
+<div>
+{% if erros %}
+    {{ erros }}
+{% endif %}
+</div>
 
+
+	<form method="POST" action="{%url 'app_cliente_salvar' 0 %}">
+	    {% csrf_token %}
+	    {% include 'cliente/form.html' %}
+	    <button type="submit" class="btn btn-primary">Salvar</button>
 	</form>
 {% endblock %}
 
