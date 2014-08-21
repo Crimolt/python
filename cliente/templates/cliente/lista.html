@@ -2,7 +2,7 @@
 {% for form in clientes%}
 	<h1> Cliente </h1>
 	{% with formEndereco=form.endereco %}
-	{% include 'form_cliente.html' %}
+	{% include 'form.html' %}
 	{% endwith %}
 	<br>
 {% endfor %}
