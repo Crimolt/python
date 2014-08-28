@@ -6,6 +6,7 @@ from parceiro.models import Parceiro
 
 template_novo = 'parceiro/novo.html'
 template_detalhe = 'parceiro/detalhe.html'
+template_lista = 'parceiro/lista.html'
 
 def novo(request):
     dados = {}
@@ -41,3 +42,9 @@ def detalhe(request, id, mensagem=None):
 	dados['formEndereco'] = EnderecoForm(instance=parceiro.endereco)
 	dados['parceiro'] = parceiro
 	return render(request, template_detalhe, dados)
+
+def lista(request):
+    dados = {}
+    #parceiros = Parceiro.objects.all()
+    #dados['parceiros'] = parceiros
+    return render(request, template_lista, dados)

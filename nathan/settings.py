@@ -64,15 +64,19 @@ WSGI_APPLICATION = 'nathan.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'nathan.db'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'python',
+        'USER': 'pgadmin',
+        'PASSWORD': 'pgadmin',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'UTC'
 

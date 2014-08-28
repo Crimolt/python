@@ -2,13 +2,12 @@
 from django.db import models
 from endereco.models import Endereco
 
+TIPO_PESSOA = (
+    ('F', u'FÍSICA'),
+    ('J', u'JURÍDICA'),
+)
+
 class Pessoa(models.Model):
-
-    TIPO_PESSOA = (
-        ('F', u'FÍSICA'),
-        ('J', u'JURÍDICA'),
-    )
-
     nome = models.CharField(max_length=60, null=False, blank=False)
     nome_fantasia = models.CharField(max_length=60, null=True, blank=True, verbose_name = u'Nome Fantasia')
     tipo_pessoa = models.CharField(max_length=1, choices=TIPO_PESSOA, default='F', null=False, blank=False, verbose_name = u'Tipo')
@@ -22,3 +21,8 @@ class Pessoa(models.Model):
     celular = models.CharField(max_length=20, null=True, blank=True)
     email = models.CharField(max_length=100, null=True, blank=True)
     data_cadastro = models.DateTimeField(null=True, blank=True, verbose_name="Data de Cadastro")
+
+    def __str__(self):
+        return "%s" % (self.nome)
+    def __unicode__(self):
+        return u'%s' % (self.nome)

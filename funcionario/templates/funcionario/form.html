@@ -1,21 +1,45 @@
-Nome: {{form.nome}} <br>
-Nome Fantasia: {{form.nome_fantasia}} <br>
-Tipo Pessoa{{form.tipo_pessoa}} <br>
-Cpf: {{form.cpf}} <br>
-Rg: {{form.rg}} <br>
-Cnpj: {{form.cnpj}} <br>
-Inscricao Estadual: {{form.inscricao_estadual}} <br>
-Inscricao Municipal: {{form.inscricao_municipal}} <br>
-Telefone: {{form.telefone}} <br>
-Celular: {{form.celular}} <br>
-Email: {{form.email}} <br>
-Data de Admição: {{form.data_admicao}} <br>
+{% for field in form %}
+	{% if field.is_hidden %}
+		<input type="hidden" id="id_{{field.name}}" name="{{field.name}}" {% if field.value %}value="{{field.value}}"{% endif %}>
+	{% elif field.field.choices %}
+		<div class="form-group">
+			{{field.label_tag}}
+			<select class="form-control" id="id_{{field.name}}" name="{{field.name}}">
+				{% for x,y in field.field.choices %}
+					{% ifequal x|add:"0" field.value|add:"0" %}
+	    				<option value="{{x}}" selected="selected">{{y}}</option>
+	    			{% else %}
+	    				<option value="{{x}}">{{y}}</option>
+	    			{% endifequal %}
+				{% endfor %}
+			</select>
+		</div>
+	{% else %}
+		<div class="form-group">
+			{{field.label_tag}}
+			<input class="form-control" id="id_{{field.name}}" name="{{field.name}}" {% if field.value %}value="{{field.value}}"{% endif %}>
+		</div>
+	{% endif %}
+{% endfor %}
 
-Endereco: <br>
-Tipo: {{formEndereco.tipo_logradouro}} <br>
-Logradouro: {{formEndereco.logradouro}} <br>
-Numero: {{formEndereco.numero}} <br>
-Bairro: {{formEndereco.bairro}} <br>
-Cidade: {{formEndereco.cidade}} <br>
-Uf: {{formEndereco.uf}} <br>
-Cep: {{formEndereco.cep}} <br>
+{% for field in formEndereco %}
+	{% if field.field.choices %}
+		<div class="form-group">
+			{{field.label_tag}}
+			<select class="form-control" id="id_{{field.name}}" name="{{field.name}}">
+				{% for x,y in field.field.choices %}
+					{% if x == field.value %}
+	    				<option value="{{x}}" selected="selected">{{y}}</option>
+	    			{% else %}
+	    				<option value="{{x}}">{{y}}</option>
+	    			{% endif %}
+				{% endfor %}
+			</select>
+		</div>
+	{% else %}
+		<div class="form-group">
+			{{field.label_tag}}
+			<input class="form-control" id="id_{{field.name}}" name="{{field.name}}"  {% if field.value %}value="{{field.value}}"{% endif %}>
+		</div>
+	{% endif %}
+{% endfor %}

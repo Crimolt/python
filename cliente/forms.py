@@ -2,7 +2,6 @@
 from django import forms
 from pessoa.forms import PessoaForm
 from cliente.models import Cliente
-from django.forms.util import ErrorList
 
 class ClienteForm(PessoaForm):
 	class Meta:

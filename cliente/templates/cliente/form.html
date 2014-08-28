@@ -15,7 +15,7 @@
 	{% else %}
 		<div class="form-group">
 			{{field.label_tag}}
-			<input class="form-control" id="id_{{field.name}}" name="{{field.name}}" value="{{field.value}}">
+			<input class="form-control" id="id_{{field.name}}" name="{{field.name}}" {% if field.value != None %}value="{{field.value}}">{% endif %}
 		</div>
 	{% endif %}
 {% endfor %}
@@ -37,7 +37,7 @@
 	{% else %}
 		<div class="form-group">
 			{{field.label_tag}}
-			<input class="form-control" id="id_{{field.name}}" name="{{field.name}}" value="{{field.value}}">
+			<input class="form-control" id="id_{{field.name}}" name="{{field.name}}" {% if field.value != None %}value="{{field.value}}">{% endif %}>
 		</div>
 	{% endif %}
 {% endfor %}

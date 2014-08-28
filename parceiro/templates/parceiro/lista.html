@@ -1,0 +1,51 @@
+{% extends 'core/base.html' %}
+
+{% block title %} Lista de Cliente {% endblock %}
+
+{% block container %}
+<div class="container">
+	<div class="row">
+		<span><a href="{% url 'app_parceiro_novo' %}"> Add </a></span>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							#
+						</th>
+						<th>
+							Nome
+						</th>
+						<th>
+							Telefone
+						</th>
+						<th>
+							E-Mail
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for parceiro in parceiros %}
+					<tr>
+						<td>
+							<a href="{% url 'app_parceiro_detalhe' parceiro.id %}">{{ parceiro.id }}</a>
+						</td>
+						<td>
+							{{ parceiro.nome }}
+						</td>
+						<td>
+							{{ parceiro.telefone }}
+						</td>
+						<td>
+							{{ parceiro.email }}
+						</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock %}

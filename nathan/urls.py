@@ -13,6 +13,10 @@ urlpatterns += patterns('',
 )
 
 urlpatterns += patterns('',
+    url(r'^funcionario/', include('funcionario.urls')),
+)
+
+urlpatterns += patterns('',
     # Examples:
     # url(r'^$', 'nathan.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
